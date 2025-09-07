@@ -1,4 +1,4 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
@@ -30,31 +30,31 @@
       background-size:6px 6px; pointer-events:none;
     }
 
-    /* Sticky CTA：漸層 + 斜線背景圖樣（純 CSS）+ 暗化罩，提升可讀性 */
+    /* ★ Sticky CTA：漸層 + 斜線圖樣背景（純 CSS）+ 暗化罩，提升小字可讀性 */
     .cta-bar{
       position:fixed; left:0; right:0; bottom:0;
       color:#fff;
-      /* 第一層：品牌漸層；第二層：斜線圖樣 */
       background-image:
         linear-gradient(to right, #059669, #06b6d4),
-        repeating-linear-gradient(45deg, rgba(255,255,255,.18) 0, rgba(255,255,255,.18) 2px, transparent 2px, transparent 6px);
+        repeating-linear-gradient(45deg, rgba(255,255,255,.18) 0 2px, transparent 2px 6px);
       background-size:cover, 16px 16px;
       background-repeat:no-repeat, repeat;
       box-shadow:0 -6px 18px rgba(0,0,0,.2);
-      isolation:isolate; /* 讓 ::before 疊在本層之下 */
+      isolation:isolate;
     }
     .cta-bar::before{
       content:""; position:absolute; inset:0; z-index:0;
-      background:rgba(0,0,0,.22); /* 暗化一點，白色小字更清楚 */
+      background:rgba(0,0,0,.22);
       pointer-events:none;
     }
     .cta-content{position:relative; z-index:1; text-shadow:0 1px 2px rgba(0,0,0,.25);}
   </style>
 </head>
 <body class="bg-gradient-to-b from-emerald-50 via-white to-cyan-50 text-gray-900 font-sans">
-  <!-- ===== 預售倒數（黃底 + 黑字 + FOMO emoji；手機把“錯過將恢復原價”換行） ===== -->
+  <!-- ===== 預售倒數（黃底 + 黑字 + FOMO emoji） ===== -->
   <div id="countdownBar" class="sticky top-0 z-50 w-full py-3 shadow-md text-center font-extrabold text-base md:text-lg relative overflow-hidden">
     <div class="absolute inset-0 bg-yellow-300"></div>
+    <!-- ★ 手機時把「｜錯過將恢復原價」換到下一行 -->
     <span class="relative z-10 text-black" id="countdownText">
       🔥 ⏳ 預售倒數：-- 天 -- 時 -- 分 -- 秒
       <span class="sm:hidden"><br></span>｜錯過將恢復原價
@@ -72,7 +72,7 @@
     </div>
   </header>
 
-  <!-- ===== Hero（其餘維持不動） ===== -->
+  <!-- ===== Hero（加強 FOMO、字級放大、CTA 改琥珀黑字） ===== -->
   <section class="mx-auto max-w-6xl px-4 pt-10 pb-6">
     <div class="hero-card border shadow p-6 md:p-8">
       <div class="text-center relative z-10">
@@ -106,88 +106,58 @@
       <div class="mt-6 grid sm:grid-cols-3 gap-3">
         <a href="#pricing" class="rounded-2xl px-5 py-3 border font-semibold bg-white text-gray-900 text-center">查看預售方案</a>
         <a href="#why-now" class="rounded-2xl px-5 py-3 border font-semibold bg-white text-gray-900 text-center">為什麼現在要買？</a>
-        <!-- Hero 主 CTA -->
+        <!-- Hero 主 CTA：琥珀底 + 黑字 + 粗描邊（手機不換行） -->
         <a href="https://www.pressplay.cc/link/s/AC0CFD0A" target="_blank" class="rounded-2xl px-5 py-3 bg-amber-400 hover:bg-amber-500 text-black font-extrabold text-center ring-2 ring-black shadow-lg whitespace-nowrap">立即預購 →</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== 三大關鍵 / 你會得到 / 垂直圖片敘述 / 時程與交付 / 價格區 / FAQ（原樣保留） ===== -->
-  <!-- ……（中段內容同你原始碼，略）…… -->
-
-  <!-- 占位：避免被底部固定 CTA 遮住內容 -->
-  <div class="h-24 md:h-0"></div>
-
-  <!-- ===== Sticky CTA（加背景圖樣與暗化罩；iOS 安全區） ===== -->
-  <div class="cta-bar text-white" style="padding-bottom: env(safe-area-inset-bottom);">
-    <div class="cta-content mx-auto max-w-6xl px-4 py-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-      <div class="text-center sm:text-left text-xs sm:text-sm leading-snug">
-        <span class="font-semibold">預售價 NT$3,500</span>（原價 NT$4,500） · 早鳥倒數進行中
-      </div>
-      <a href="https://www.pressplay.cc/link/s/AC0CFD0A" target="_blank" class="w-full sm:w-auto rounded-xl bg-amber-300 hover:bg-amber-400 text-black px-4 py-2 font-extrabold shadow ring-2 ring-black text-center whitespace-nowrap">立即預購</a>
+  <!-- ===== 三大關鍵 ===== -->
+  <section class="mx-auto max-w-6xl px-4 py-10 grid md:grid-cols-3 gap-6">
+    <div class="rounded-2xl border bg-white/90 backdrop-blur p-6 shadow">
+      <div class="text-sm text-emerald-700 font-semibold">幫助你解決什麼問題？</div>
+      <h3 class="mt-1 text-xl font-bold">再不改變，你的時間就被吃光</h3>
+      <p class="mt-3 text-gray-700 text-sm leading-6">每天重複貼文、人工整理名單、疲於回覆訊息？這些不是努力，而是浪費！現在就用 AI 自動化，把浪費的工時變成產能與營收。</p>
+      <p class="mt-2 text-sm text-rose-600">⚠️ 趁預售鎖價，之後回到原價 NT$4,500。</p>
     </div>
-  </div>
+    <div class="rounded-2xl border bg-white/90 backdrop-blur p-6 shadow">
+      <div class="text-sm text-emerald-700 font-semibold">上完後你會變成什麼樣樣子？</div>
+      <h3 class="mt-1 text-xl font-bold">擁有 24/7 的 AI 行銷戰隊</h3>
+      <p class="mt-3 text-gray-700 text-sm leading-6">內容生成、Email、表單到數據整理，一切自動完成。你專注策略與增長，團隊用 SOP 模板快速複製成果。</p>
+      <p class="mt-2 text-sm text-rose-600">🎯 預售加入可先拿模板，開賣後將不再提供早鳥贈品。</p>
+    </div>
+    <div id="why-now" class="rounded-2xl border bg-white/90 backdrop-blur p-6 shadow">
+      <div class="text-sm text-emerald-700 font-semibold">為什麼你現在要買？</div>
+      <h3 class="mt-1 text-xl font-bold">預售價最划算＋優先權</h3>
+      <p class="mt-3 text-gray-700 text-sm leading-6">現在加入可鎖定 <span class="font-semibold">預售價</span>、搶先取得模板與更新；正式開賣將恢復原價且名額有限。越早開始，越早享受自動化！</p>
+      <p class="mt-2 text-sm text-rose-600">⏰ 倒數進行中，贈品與席次有限。</p>
+    </div>
+  </section>
 
-  <!-- ===== Scripts ===== -->
-  <script>
-    // 首訪鎖定 48 小時倒數（localStorage）
-    const KEY = 'aijob_presale_deadline_v1';
-    const TWO_DAYS_MS = 2 * 24 * 60 * 60 * 1000;
-    let deadline = Number(localStorage.getItem(KEY));
-    const nowInit = Date.now();
-    if (!deadline || !Number.isFinite(deadline) || deadline < nowInit) {
-      deadline = nowInit + TWO_DAYS_MS;
-      localStorage.setItem(KEY, String(deadline));
-    }
-    // 寫入時程文字
-    const saleWindowEl = document.getElementById('saleWindow');
-    if (saleWindowEl) {
-      const endDate = new Date(deadline);
-      saleWindowEl.textContent = `即日起 ～ ${endDate.toLocaleDateString('zh-TW')} 23:59`;
-    }
-    const releaseDateEl = document.getElementById('releaseDate');
-    if (releaseDateEl) releaseDateEl.textContent = `2025/10/01（可提早釋出單元）`;
+  <!-- ===== 你會得到 + 圖片 ===== -->
+  <section class="mx-auto max-w-6xl px-4 py-10">
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <div class="rounded-2xl bg-white/80 backdrop-blur border p-6 shadow">
+        <div class="text-sm text-gray-500">你會得到</div>
+        <ul class="mt-2 space-y-2 text-gray-700">
+          <li>✅ 6 份課程簡報＋8 個應用模板</li>
+          <li>✅ n8n × GPT 串接清單與排查清單</li>
+          <li>✅ 一條龍整合：ChatGPT／LINE／Notion／Google 生態</li>
+        </ul>
+        <p class="mt-2 text-sm text-rose-600">🎁 預售加贈：模板試用包 + 排錯錄播（限時）</p>
+        <a href="https://www.pressplay.cc/link/s/AC0CFD0A" target="_blank" class="mt-4 inline-flex rounded-2xl px-5 py-3 bg-amber-300 hover:bg-amber-400 text-black font-extrabold ring-2 ring-black shadow whitespace-nowrap">立即預購</a>
+      </div>
+      <div class="rounded-2xl overflow-hidden border shadow flex items-center justify-center bg-white">
+        <img src="https://static.wixstatic.com/media/9705bb_b85f3e3731ee4e2680b800775d2142a9~mv2.png" alt="課程示意" class="w-full h-auto object-contain" />
+      </div>
+    </div>
+  </section>
 
-    // 動態倒數（手機時讓「錯過將恢復原價」換行）
-    const countdownText = document.getElementById('countdownText');
-    const fomoHoursEl = document.getElementById('fomoHours');
-    function tick(){
-      const now = Date.now();
-      let diff = Math.max(0, deadline - now);
-      const d = Math.floor(diff / 86400000); diff -= d * 86400000;
-      const h = Math.floor(diff / 3600000);   diff -= h * 3600000;
-      const m = Math.floor(diff / 60000);      diff -= m * 60000;
-      const s = Math.floor(diff / 1000);
-      const totalHours = Math.max(0, Math.floor((deadline - now) / 3600000));
-      if (fomoHoursEl) fomoHoursEl.textContent = String(totalHours);
+  <!-- ===== 垂直圖片敘述 ===== -->
+  <section class="mx-auto max-w-3xl px-4 py-10 space-y-8">
+    <div class="rounded-2xl overflow-hidden border shadow bg-white">
+      <img src="https://static.wixstatic.com/media/9705bb_e3f050fb83b0444dbcaf41a503ce5aaf~mv2.png" alt="零程式也能上手" class="w-full h-auto" />
+      <div class="p-4 text-gray-700">
+        <h3 class="font-bold text-lg mb-2">沒有程式背景？沒藉口！</h3>
+        <p>零基礎也能快速上手，課程一
 
-      // 用 innerHTML 才能保留 <br>
-      countdownText.innerHTML = (deadline - now <= 0)
-        ? '⏰ 預售已結束（可洽詢是否加開名額）'
-        : `🔥 ⏳ 預售倒數： ${d}天 ${h}時 ${m}分 ${s}秒 <span class="sm:hidden"><br></span>｜錯過將恢復原價`;
-    }
-    tick();
-    setInterval(tick, 1000);
-  </script>
-
-  <!-- YouTube 追蹤（保留，可接 GA4） -->
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <script>
-    let ytPlayer, sent25=false;
-    function onYouTubeIframeAPIReady(){
-      ytPlayer = new YT.Player('yt', { events: { 'onStateChange': onPlayerStateChange } });
-    }
-    function onPlayerStateChange(e){
-      if (e.data === YT.PlayerState.PLAYING) {
-        const iv = setInterval(()=>{
-          if (!ytPlayer || !ytPlayer.getDuration) return;
-          const dur = ytPlayer.getDuration();
-          const cur = ytPlayer.getCurrentTime();
-          if (dur > 0 && !sent25 && cur/dur >= 0.25) { sent25 = true; clearInterval(iv); }
-          if (e.data !== YT.PlayerState.PLAYING) clearInterval(iv);
-        }, 1000);
-      }
-    }
-  </script>
-</body>
-</html>
