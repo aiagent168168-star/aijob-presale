@@ -282,10 +282,10 @@
     const saleWindowEl = document.getElementById('saleWindow');
     if (saleWindowEl) {
       const endDate = new Date(deadline);
-      saleWindowEl.textContent = 即日起 ～ ${endDate.toLocaleDateString('zh-TW')} 23:59;
+      saleWindowEl.textContent = `即日起 ～ ${endDate.toLocaleDateString('zh-TW')} 23:59`;
     }
     const releaseDateEl = document.getElementById('releaseDate');
-    if (releaseDateEl) releaseDateEl.textContent = 2025/10/01（可提早釋出單元）;
+    if (releaseDateEl) releaseDateEl.textContent = `2025/10/01（可提早釋出單元）`;
 
     // 動態倒數（每秒遞減）
     const countdownText = document.getElementById('countdownText');
@@ -301,7 +301,7 @@
       if (fomoHoursEl) fomoHoursEl.textContent = String(totalHours);
       countdownText.textContent = (deadline - now <= 0)
         ? '⏰ 預售已結束（可洽詢是否加開名額）'
-        : 🔥 ⏳ 預售倒數： ${d}天 ${h}時 ${m}分 ${s}秒｜錯過將恢復原價;
+        : `🔥 ⏳ 預售倒數： ${d}天 ${h}時 ${m}分 ${s}秒｜錯過將恢復原價`;
     }
     tick();
     setInterval(tick, 1000);
@@ -328,3 +328,4 @@
   </script>
 </body>
 </html>
+
