@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>【預售中】AI 自動化行銷實戰營｜AIJob學院（n8n × GPT）</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="description" content="預售限時早鳥｜用最簡單的方式，沒有程式背景也能把重複的行銷雜事自動化。AI 自動化行銷實戰營（n8n × GPT）實作課。">
+  <style>
+    /* YouTube: 桌機最大 560×315，手機 16:9 */
+    .yt-container{max-width:560px;margin-left:auto;margin-right:auto;}
+    .yt-16x9{position:relative;width:100%;padding-top:56.25%;}
+    .yt-16x9 iframe{position:absolute;top:0;left:0;width:100%;height:100%;}
+    /* 進度條顏色（外層柔和、內層醒目） */
+    .progress-bg{background:linear-gradient(90deg,rgba(16,185,129,0.16),rgba(251,191,36,0.16) 50%,rgba(6,182,212,0.16));}
+    .progress-fill{background:linear-gradient(90deg,#ef4444,#f97316 40%,#10b981);}
+    /* Hero 卡片：琥珀 × 玫瑰 漸層 + 徑向光暈 + 淡噪點 */
+    .hero-card{
+      position:relative; border-radius:1rem;
+      background:
+        radial-gradient(1200px 400px at 10% -20%, rgba(251,191,36,0.40), rgba(251,191,36,0) 60%),
+        radial-gradient(900px 360px at 100% 0%, rgba(244,63,94,0.35), rgba(244,63,94,0) 60%),
+        linear-gradient(135deg, #fde68a 0%, #fecaca 45%, #fde68a 100%);
+    }
+    .hero-card:after{
+      content:""; position:absolute; inset:0; border-radius:1rem;
+      background-image:radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+      background-size:6px 6px; pointer-events:none;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-emerald-50 via-white to-cyan-50 text-gray-900 font-sans">
+  <!-- ===== 預售倒數（黃底 + 黑字 + FOMO emoji） ===== -->
+  <div id="countdownBar" class="sticky top-0 z-50 w-full py-3 shadow-md text-center font-extrabold text-lg relative overflow-hidden">
+    <div class="absolute inset-0 bg-yellow-300"></div>
+    <span class="relative z-10 text-black" id="countdownText">🔥 ⏳ 預售倒數：-- 天 -- 時 -- 分 -- 秒｜錯過將恢復原價</span>
+  </div>
+
+  <!-- ===== Top Bar ===== -->
+  <header class="w-full bg-white/80 backdrop-blur border-b">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="https://static.wixstatic.com/media/9705bb_10fc5f34d58f4fa0aa95e913e15d0457~mv2.png" alt="AIJob學院 logo" class="h-9 w-9 object-contain rounded">
+        <span class="font-semibold">AIJob學院</span>
+      </div>
+      <a href="https://www.pressplay.cc/link/s/AC0CFD0A" target="_blank" class="hidden md:inline-flex rounded-xl bg-gradient-to-r from-cyan-600 to-emerald-600 text-white px-4 py-2 text-sm font-semibold shadow hover:opacity-90">立即預購</a>
+    </div>
+  </header>
+
+  <!-- ===== Hero（加強 FOMO、字級放大、CTA 改琥珀黑字） ===== -->
+  <section class="mx-auto max-w-6xl px-4 pt-10 pb-6">
+    <div class="hero-card border shadow p-6 md:p-8">
+      <div class="text-center relative z-10">
+        <p class="text-lg md:text-2xl font-extrabold text-amber-900 tracking-wide">
+          AI 自動化行銷實戰營｜第 1 期限量預售中 🚀
+        </p>
+        <div class="mt-3 inline-flex items-center gap-2 px-4 py-2 rounded-full text-base md:text-lg font-bold bg-amber-300 text-amber-900 ring-2 ring-amber-400">
+          預售進行中 · 名額有限
+        </div>
+        <h1 class="mt-4 text-3xl md:text-5xl font-extrabold leading-tight bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent">
+          行銷 AI 自動化實戰（n8n × GPT）
+        </h1>
+        <p class="mt-3 text-sm text-gray-800">⌛ 現在加入鎖定早鳥價，隨時追加單元與模板—開賣將恢復原價。</p>
+        <p class="mt-2 text-sm text-gray-700">📢 預售僅開放 <span id="fomoHours">48</span> 小時內下單享早鳥價；截止後將恢復原價 NT$4,500。</p>
+      </div>
+
+      <div class="mt-6 rounded-3xl overflow-hidden border shadow-lg">
+        <img src="https://static.wixstatic.com/media/9705bb_650f30cbdd5040679358c3337425267d~mv2.jpg" alt="課程封面" class="w-full h-auto">
+      </div>
+
+      <!-- 影片 -->
+      <div class="mt-6 rounded-2xl overflow-hidden border shadow p-2">
+        <div class="yt-container"><div class="yt-16x9">
+          <iframe id="yt" src="https://www.youtube.com/embed/ESk2t4Oa0ig?enablejsapi=1&start=1"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div></div>
+      </div>
+
+      <div class="mt-6 grid sm:grid-cols-3 gap-3">
+        <a href="#pricing" class="rounded-2xl px-5 py-3 border font-semibold bg-white text-gray-900 text-center">查看預售方案</a>
+        <a href="#why-now" class="rounded-2xl px-5 py-3 border font-semibold bg-white text-gray-900 text-center">為什麼現在要買？</a>
+        <!-- Hero 主 CTA：琥珀底 + 黑字 + 粗描邊 -->
+        <a href="https://www.pressplay.cc/link/s/AC0CFD0A" target="_blank" class="rounded-2xl px-5 py-3 bg-amber-400 hover:bg-amber-500 text-black font-extrabold text-center ring-2 ring-black shadow-lg">立即預購 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 三大關鍵 ===== -->
+  <section class="mx-auto max-w-6xl px-4 py-10 grid md:grid-cols-3 gap-6">
+    <div class="rounded-2xl border bg-white/90 backdrop-blur p-6 shadow">
+      <div class="text-sm text-emerald-700 font-semibold">幫助你解決什麼問題？</div>
+      <h3 class="mt-1 text-xl font-bold">再不改變，你的時間就被吃光</h3>
+      <p class="mt-3 text-gray-700 text-sm leading-6">每天重複貼文、人工整理名單、疲於回覆訊息？這些不是努力，而是浪費！現在就用 AI 自動化，把浪費的工時變成產能與營收。</p>
+      <p class="mt-2 text-sm text-rose-600">⚠️ 趁預售鎖價，之後回到原價 NT$4,500。</p>
+    </div>
+    <div class="rounded-2xl border bg-white/90 backdrop-blur p-6 shadow">
+      <div class="text-sm text-emerald-700 font-semibold">上完後你會變成什麼樣樣子？</div>
+      <h3 class="mt-1 text-xl font-bold">擁有 24/7 的 AI 行銷戰隊</h3>
+      <p class="mt-3 text-gray-700 text-sm leading-6">內容生成、Email、表單到數據整理，一切自動完成。你專注策略與增長，團隊用 SOP 模板快速複製成果。</p>
+      <p class="mt-2 text-sm text-rose-600">🎯 預售加入可先拿模板，開賣後將不再提供早鳥贈品。</p>
+    </div>
+    <div id="why-now" class="rounded-2xl border bg-white/90 backdrop-blur p-6 shadow">
+      <div class="text-sm text-emerald-700 font-semibold">為什麼你現在要買？</div>
+      <h3 class="mt-1 text-xl font-bold">預售價最划算＋優先權</h3>
+      <p class="mt-3 text-gray-700 text-sm leading-6">現在加入可鎖定 <span class="font-semibold">預售價</span>、搶先取得模板與更新；正式開賣將恢復原價且名額有限。越早開始，越早享受自動化！</p>
+      <p class="mt-2 text-sm text-rose-600">⏰ 倒數進行中，贈品與席次有限。</p>
+    </div>
+  </section>
+
+  <!-- ===== 你會得到 + 圖片 ===== -->
+  <section class="mx-auto max-w-6xl px-4 py-10">
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <div class="rounded-2xl bg-white/80 backdrop-blur border p-6 shadow">
+        <div class="text-sm text-gray-500">你會得到</div>
+        <ul class="mt-2 space-y-2 text-gray-700">
+          <li>✅ 6 份課程簡報＋8 個應用模板</li>
+          <li>✅ n8n × GPT 串接清單與排查清單</li>
+          <li>✅ 一條龍整合：ChatGPT／LINE／Notion／Google 生態</li>
+        </ul>
+        <p class="mt-2 text-sm text-rose-600">🎁 預售加贈：模板試用包 + 排錯錄播（限時）</p>
+        <a href="https://www.pressplay.cc/link/s/AC0CFD0A" target="_blank" class="mt-4 inline-flex rounded-2xl px-5 py-3 bg-amber-300 hover:bg-amber-400 text-black font-extrabold ring-2 ring-black shadow">立即預購</a>
+      </div>
+      <div class="rounded-2xl overflow-hidden border shadow flex items-center justify-center bg-white">
+        <img src="https://static.wixstatic.com/media/9705bb_b85f3e3731ee4e2680b800775d2142a9~mv2.png" alt="課程示意" class="w-full h-auto object-contain" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 垂直圖片敘述 ===== -->
+  <section class="mx-auto max-w-3xl px-4 py-10 space-y-8">
+    <div class="rounded-2xl overflow-hidden border shadow bg-white">
+      <img src="https://static.wixstatic.com/media/9705bb_e3f050fb83b0444dbcaf41a503ce5aaf~mv2.png" alt="零程式也能上手" class="w-full h-auto" />
+      <div class="p-4 text-gray-700">
+        <h3 class="font-bold text-lg mb-2">沒有程式背景？沒藉口！</h3>
+        <p>零基礎也能快速上手，課程一步步帶你完成自動化，別讓技術成為阻礙。</p>
+      </div>
+    </div>
+    <div class="rounded-2xl overflow-hidden border shadow bg-white">
+      <img src="https://static.wixstatic.com/media/9705bb_8a1a1a66e9f642219cafc084f9ac1d75~mv2.png" alt="整合工具" class="w-full h-auto" />
+      <div class="p-4 text-gray-700">
+        <h3 class="font-bold text-lg mb-2">別再被工具牽著走</h3>
+        <p>LINE、Notion、Google 資料分散？一次整合，讓工具聽你的，而不是拖慢你。</p>
+      </div>
+    </div>
+    <div class="rounded-2xl overflow-hidden border shadow bg白">
+      <img src="https://static.wixstatic.com/media/9705bb_1059071ffbbd40008c4ace9173e82c8a~mv2.png" alt="SOP 模板" class="w-full h-auto" />
+      <div class="p-4 text-gray-700">
+        <h3 class="font-bold text-lg mb-2">SOP 模板＝成功捷徑</h3>
+        <p>直接下載使用，不必從零設計。越快套用，就越快看到成果。</p>
+      </div>
+    </div>
+    <div class="rounded-2xl overflow-hidden border shadow bg-white">
+      <img src="https://static.wixstatic.com/media/9705bb_29bb1edd690f48b89236d95633062e88~mv2.png" alt="學員見證" class="w-full h-auto" />
+      <div class="p-4 text-gray-700">
+        <h3 class="font-bold text-lg mb-2">學員見證最有力</h3>
+        <p>上百位學員已經透過這堂課翻轉效率。下一個成功案例，會是你嗎？</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 時程與交付 ===== -->
+  <section class="mx-auto max-w-6xl px-4 py-10" id="timeline">
+    <div class="rounded-2xl border bg-white/90 p-6 shadow">
+      <h3 class="text-xl font-bold">預售時程與交付</h3>
+      <ul class="mt-4 grid md:grid-cols-3 gap-4 text-sm text-gray-700">
+        <li class="rounded-xl border p-4"><span class="font-semibold">預售期間</span><br><span id="saleWindow">即日起 ～ （倒數 2 天）</span></li>
+        <li class="rounded-xl border p-4"><span class="font-semibold">課程開放時間</span><br><span id="releaseDate">2025/10/01（可提早釋出單元）</span></li>
+        <li class="rounded-xl border p-4"><span class="font-semibold">更新與服務</span><br>持續增補單元、模板更新免費，終身不限次數回看</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 價格區 ===== -->
+  <section class="mx-auto max-w-6xl px-4 pb-20" id="pricing">
+    <h3 class="text-2xl font-extrabold text-center">預售方案</h3>
+    <p class="mt-2 text-center text-gray-600">預售價結束後將恢復原價</p>
+
+    <div class="mt-6 grid md:grid-cols-3 gap-6">
+      <!-- 早鳥方案 -->
+      <div class="relative rounded-2xl border shadow bg-white p-6">
+        <div class="absolute -top-3 right-4 text-xs px-2 py-1 rounded-full bg-emerald-600 text-white">熱銷中 🔥</div>
+        <h4 class="font-bold">早鳥預售</h4>
+        <div class="mt-2 text-3xl font-extrabold">NT$3,500</div>
+        <div class="text-sm text-gray-500 line-through">NT$4,500</div>
+        <ul class="mt-3 space-y-2 text-sm text-gray-700">
+          <li>• 完整課程（終身回看）</li>
+          <li>• 6 份簡報＋8 個模板</li>
+          <li>• 更新補課免費</li>
+        </ul>
+        <a href="https://www.pressplay.cc/link/s/AC0CFD0A" target="_blank" class="mt-4 inline-flex rounded-xl px-5 py-3 bg-amber-300 hover:bg-amber-400 text黑 font-extrabold w-full justify-center ring-2 ring-black shadow">立即預購</a>
+      </div>
+
+      <!-- 標準方案（鎖定提醒） -->
+      <div class="relative rounded-2xl border shadow bg-white p-6 opacity-95">
+        <div class="absolute -top-3 right-4 text-xs px-2 py-1 rounded-full bg-gray-800 text-white">開賣時恢復原價</div>
+        <h4 class="font-bold">正式版（即將開賣）</h4>
+        <div class="mt-2 text-3xl font-extrabold">NT$4,500</div>
+        <ul class="mt-3 space-y-2 text-sm text-gray-700">
+          <li>• 完整課程（終身回看）</li>
+          <li>• 所有模板與更新</li>
+          <li>• 一次性付款</li>
+        </ul>
+        <a href="https://forms.fillout.com/t/qk8pZpQt5ius" target="_blank" class="mt-4 inline-flex rounded-xl px-5 py-3 border font-semibold w-full justify-center">我要鎖定</a>
+      </div>
+
+      <!-- 團隊授權（可選） -->
+      <div class="relative rounded-2xl border shadow bg白 p-6">
+        <div class="absolute -top-3 right-4 text-xs px-2 py-1 rounded-full bg-cyan-600 text-white">團隊方案</div>
+        <h4 class="font-bold">團隊授權（3 人）</h4>
+        <div class="mt-2 text-3xl font-extrabold">NT$9,900</div>
+        <ul class="mt-3 space-y-2 text-sm text-gray-700">
+          <li>• 3 席課程授權</li>
+          <li>• 企業內訓模板包</li>
+          <li>• 私聊一次諮詢（30 分）</li>
+        </ul>
+        <a href="https://forms.fillout.com/t/qk8pZpQt5ius" target="_blank" class="mt-4 inline-flex rounded-xl px-5 py-3 border font-semibold w-full justify-center">聯絡洽詢</a>
+      </div>
+    </div>
+
+    <!-- 進度條 -->
+    <div class="mt-6">
+      <div class="text-sm text-gray-600 mb-2">早鳥名額已售出 72%</div>
+      <div id="progressBar" class="w-full h-4 rounded-full overflow-hidden shadow-inner progress-bg">
+        <div id="progressFill" class="h-full progress-fill" style="width:72%"></div>
+      </div>
+      <p class="text-xs text-rose-600 mt-2">⚡ 越接近 100%，預售越可能提前結束。</p>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="mx-auto max-w-6xl px-4 pb-32">
+    <div class="rounded-2xl border p-6 bg-white/90 backdrop-blur shadow">
+      <h3 class="text-xl font-bold text-center">常見問題</h3>
+      <div class="mt-4 grid md:grid-cols-2 gap-4 text-gray-700 text-sm">
+        <div class="rounded-xl border p-4">
+          <div class="font-semibold">這是預售，何時可以開始學？</div>
+          <p class="mt-2">預計 <span class="font-semibold">2025/10/01</span> 開放主要單元，之後持續增補更新（如可提前會提前釋出）。</p>
+        </div>
+        <div class="rounded-xl border p-4">
+          <div class="font-semibold">需要程式背景嗎？</div>
+          <p class="mt-2">不用。完全針對零程式設計，跟著模板一步一步完成。</p>
+        </div>
+        <div class="rounded-xl border p-4">
+          <div class="font-semibold">可以重複看嗎？有期限嗎？</div>
+          <p class="mt-2">終身不限次數觀看，之後更新免費。</p>
+        </div>
+        <div class="rounded-xl border p-4">
+          <div class="font-semibold">預售有保障嗎？</div>
+          <p class="mt-2">若課程未如期開放，我們會主動通知並提供解決方案與補償；你也可透過報名頁客服窗口聯繫。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Sticky CTA ===== -->
+  <div class="fixed bottom-0 inset-x-0 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white shadow-lg">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-3">
+      <div class="text-sm"><span class="font-semibold">預售價 NT$3,500</span>（原價 NT$4,500） · 早鳥倒數進行中</div>
+      <a href="https://www.pressplay.cc/link/s/AC0CFD0A" target="_blank" class="rounded-xl bg-amber-300 hover:bg-amber-400 text-black px-4 py-2 font-extrabold shadow ring-2 ring-black">立即預購</a>
+    </div>
+  </div>
+
+  <!-- ===== Scripts ===== -->
+  <script>
+    // 首訪鎖定 48 小時倒數（localStorage）
+    const KEY = 'aijob_presale_deadline_v1';
+    const TWO_DAYS_MS = 2 * 24 * 60 * 60 * 1000;
+    let deadline = Number(localStorage.getItem(KEY));
+    const nowInit = Date.now();
+    if (!deadline || !Number.isFinite(deadline) || deadline < nowInit) {
+      deadline = nowInit + TWO_DAYS_MS;
+      localStorage.setItem(KEY, String(deadline));
+    }
+    // 寫入時程文字
+    const saleWindowEl = document.getElementById('saleWindow');
+    if (saleWindowEl) {
+      const endDate = new Date(deadline);
+      saleWindowEl.textContent = `即日起 ～ ${endDate.toLocaleDateString('zh-TW')} 23:59`;
+    }
+    const releaseDateEl = document.getElementById('releaseDate');
+    if (releaseDateEl) releaseDateEl.textContent = `2025/10/01（可提早釋出單元）`;
+
+    // 動態倒數（每秒遞減）
+    const countdownText = document.getElementById('countdownText');
+    const fomoHoursEl = document.getElementById('fomoHours');
+    function tick(){
+      const now = Date.now();
+      let diff = Math.max(0, deadline - now);
+      const d = Math.floor(diff / 86400000); diff -= d * 86400000;
+      const h = Math.floor(diff / 3600000);   diff -= h * 3600000;
+      const m = Math.floor(diff / 60000);      diff -= m * 60000;
+      const s = Math.floor(diff / 1000);
+      const totalHours = Math.max(0, Math.floor((deadline - now) / 3600000));
+      if (fomoHoursEl) fomoHoursEl.textContent = String(totalHours);
+      countdownText.textContent = (deadline - now <= 0)
+        ? '⏰ 預售已結束（可洽詢是否加開名額）'
+        : `🔥 ⏳ 預售倒數： ${d}天 ${h}時 ${m}分 ${s}秒｜錯過將恢復原價`;
+    }
+    tick();
+    setInterval(tick, 1000);
+  </script>
+
+  <!-- YouTube 追蹤（保留，可接 GA4） -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    let ytPlayer, sent25=false;
+    function onYouTubeIframeAPIReady(){
+      ytPlayer = new YT.Player('yt', { events: { 'onStateChange': onPlayerStateChange } });
+    }
+    function onPlayerStateChange(e){
+      if (e.data === YT.PlayerState.PLAYING) {
+        const iv = setInterval(()=>{
+          if (!ytPlayer || !ytPlayer.getDuration) return;
+          const dur = ytPlayer.getDuration();
+          const cur = ytPlayer.getCurrentTime();
+          if (dur > 0 && !sent25 && cur/dur >= 0.25) { sent25 = true; clearInterval(iv); }
+          if (e.data !== YT.PlayerState.PLAYING) clearInterval(iv);
+        }, 1000);
+      }
+    }
+  </script>
+</body>
+</html>
