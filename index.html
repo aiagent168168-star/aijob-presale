@@ -1,1036 +1,221 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI 自動化行銷實戰營 | n8n & GPT 應用教學 | AIJob學院 - 預售中</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <meta name="description" content="預售限時早鳥！學習 AI 自動化行銷，掌握 n8n 與 GPT 實戰應用，輕鬆自動化行銷雜事，提升效率與營收。500+ 學員成功見證，平均節省 15 小時/週。立即預購，錯過不再！">
-  <meta name="keywords" content="AI 自動化行銷, n8n 教學, GPT 應用, 行銷自動化工具, 數位行銷課程, AI 行銷實戰, 自動化工作流程, 行銷效率提升">
-  <meta name="author" content="AIJob學院">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.pressplay.cc/link/s/AC0CFD0A">
-  <meta property="og:title" content="AI 自動化行銷實戰營 | n8n & GPT 應用教學 | AIJob學院">
-  <meta property="og:description" content="預售限時早鳥！學習 AI 自動化行銷，掌握 n8n 與 GPT 實戰應用，500+ 學員成功見證，平均節省 15 小時/週。">
-  <meta property="og:image" content="https://static.wixstatic.com/media/9705bb_650f30cbdd5040679358c3337425267d~mv2.jpg">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://www.pressplay.cc/link/s/AC0CFD0A">
-  <meta property="twitter:title" content="AI 自動化行銷實戰營 | n8n & GPT 應用教學">
-  <meta property="twitter:description" content="預售限時早鳥！學習 AI 自動化行銷，掌握 n8n 與 GPT 實戰應用，500+ 學員成功見證。">
-  <meta property="twitter:image" content="https://static.wixstatic.com/media/9705bb_650f30cbdd5040679358c3337425267d~mv2.jpg">
-
-  <!-- 結構化數據 -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    "name": "AI 自動化行銷實戰營",
-    "description": "學習 AI 自動化行銷，掌握 n8n 與 GPT 實戰應用，輕鬆自動化行銷雜事，提升效率與營收",
-    "provider": {
-      "@type": "Organization",
-      "name": "AIJob學院",
-      "url": "https://www.pressplay.cc/link/s/AC0CFD0A"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "3500",
-      "priceCurrency": "TWD",
-      "availability": "https://schema.org/InStock",
-      "validFrom": "2025-09-08",
-      "priceValidUntil": "2025-09-10"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "500",
-      "bestRating": "5"
-    }
-  }
-  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AIJob 免費課｜最簡單的 GPT 對話與提示詞入門</title>
+  <meta name="description" content="用最最最簡單的方式，帶你學會跟 AI 對話。看得懂、學得會、馬上用！填表領取優惠券後即可免費取得課程。">
+  <meta property="og:title" content="AIJob 免費課｜最簡單的 GPT 對話與提示詞入門" />
+  <meta property="og:description" content="填寫表單→馬上寄送優惠券→免費領取完整課程。附可複製提示詞模板與手把手示範，從 0 開始也會！" />
+  <meta property="og:image" content="https://static.wixstatic.com/media/9705bb_25859e666a624034bb099c6cfff2c4fc~mv2.jpg" />
+  <meta property="og:type" content="website" />
   <style>
-    /* YouTube: 桌機最大 560×315，手機 16:9 */
-    .yt-container{max-width:560px;margin-left:auto;margin-right:auto;}
-    .yt-16x9{position:relative;width:100%;padding-top:56.25%;}
-    .yt-16x9 iframe{position:absolute;top:0;left:0;width:100%;height:100%;}
-    
-    /* 進度條顏色（外層柔和、內層醒目） */
-    .progress-bg{background:linear-gradient(90deg,rgba(16,185,129,0.16),rgba(251,191,36,0.16) 50%,rgba(6,182,212,0.16));}
-    .progress-fill{background:linear-gradient(90deg,#ef4444,#f97316 40%,#10b981);}
-    
-    /* Hero 卡片：琥珀 × 玫瑰 漸層 + 徑向光暈 + 淡噪點 */
-    .hero-card{
-      position:relative; border-radius:1rem;
-      background:
-        radial-gradient(1200px 400px at 10% -20%, rgba(251,191,36,0.40), rgba(251,191,36,0) 60%),
-        radial-gradient(900px 360px at 100% 0%, rgba(244,63,94,0.35), rgba(244,63,94,0) 60%),
-        linear-gradient(135deg, #fde68a 0%, #fecaca 45%, #fde68a 100%);
+    :root{
+      --bg:#f7fbff; --ink:#0f172a; --sub:#475569; --brand:#22c55e; --brand2:#06b6d4; --accent:#f97316;
+      --card:#ffffff; --muted:#e2e8f0; --ring:#93c5fd;
     }
-    .hero-card:after{
-      content:""; position:absolute; inset:0; border-radius:1rem;
-      background-image:radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
-      background-size:6px 6px; pointer-events:none;
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans TC","PingFang TC",Arial,sans-serif;
+      color:var(--ink); background:var(--bg);}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+    .btn{display:inline-block;padding:14px 20px;border-radius:14px;font-weight:800;letter-spacing:.5px}
+    .btn-primary{background:linear-gradient(90deg,var(--brand),var(--brand2));color:#fff;
+      box-shadow:0 8px 24px rgba(34,197,94,.25); transition:.2s}
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-ghost{background:#fff;color:var(--brand2);border:2px solid var(--brand2)}
+    .btn-line{background:#06c755;color:#fff}              /* ← 新增 LINE 綠按鈕樣式 */
+    .btn-line:hover{filter:brightness(.95)}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700}
+    .badge-hot{background:#fff1e7;color:var(--accent);border:1px solid #ffd8bf}
+    .hero{
+      background: radial-gradient(1200px 500px at 20% -10%, #c7f9ff 0%, transparent 60%),
+                  radial-gradient(1200px 500px at 100% 0%, #ddffef 0%, transparent 60%),
+                  linear-gradient(180deg,#effaff, #ffffff 70%);
+      border-bottom:1px solid var(--muted);
     }
-
-    /* 優化的 CTA 按鈕樣式 */
-    .cta-primary {
-      position: relative;
-      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
-      color: #000;
-      font-weight: 900;
-      border: 2px solid #000;
-      border-radius: 1rem;
-      padding: 0.75rem 1.5rem;
-      text-align: center;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      overflow: hidden;
-    }
-
-    .cta-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2), 0 8px 12px -4px rgba(0, 0, 0, 0.1);
-      background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
-    }
-
-    .cta-primary:active {
-      transform: translateY(0);
-      box-shadow: 0 5px 15px -3px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
-    }
-
-    .cta-primary::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transition: left 0.6s;
-    }
-
-    .cta-primary:hover::before {
-      left: 100%;
-    }
-
-    /* 次要 CTA 按鈕 */
-    .cta-secondary {
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      color: white;
-      font-weight: 700;
-      border: none;
-      border-radius: 0.75rem;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px -3px rgba(16, 185, 129, 0.3);
-    }
-
-    .cta-secondary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 25px -5px rgba(16, 185, 129, 0.4);
-      background: linear-gradient(135deg, #059669 0%, #047857 100%);
-    }
-
-    /* 倒數計時器優化 */
-    .countdown-bar {
-      background: linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24);
-      background-size: 200% 100%;
-      animation: shimmer 3s ease-in-out infinite;
-    }
-
-    @keyframes shimmer {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    /* 卡片懸停效果 */
-    .card-hover {
-      transition: all 0.3s ease;
-    }
-
-    .card-hover:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
-    }
-
-    /* 漸入動畫 */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.6s ease forwards;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* 響應式字體優化 */
-    @media (max-width: 640px) {
-      .hero-title {
-        font-size: 2rem;
-        line-height: 1.2;
-      }
-      
-      .cta-primary {
-        width: 100%;
-        padding: 1rem 1.5rem;
-        font-size: 1.1rem;
-      }
-      
-      .mobile-spacing {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-    }
-
-    @media (min-width: 641px) and (max-width: 1024px) {
-      .tablet-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    /* 進度條動畫 */
-    .progress-fill {
-      animation: progressGrow 2s ease-out;
-    }
-
-    @keyframes progressGrow {
-      from { width: 0%; }
-    }
-
-    /* 脈衝效果 */
-    .pulse-glow {
-      animation: pulseGlow 2s ease-in-out infinite;
-    }
-
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
-      50% { box-shadow: 0 0 30px rgba(251, 191, 36, 0.6); }
-    }
-
-    /* 平滑滾動 */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* 改善可讀性 */
-    .text-enhanced {
-      line-height: 1.7;
-      letter-spacing: 0.01em;
-    }
-
-    /* 手機版導航優化 */
-    @media (max-width: 768px) {
-      .mobile-nav {
-        padding: 0.75rem 1rem;
-      }
-      
-      .mobile-logo {
-        height: 2rem;
-        width: 2rem;
-      }
+    .hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;padding:56px 0}
+    .hero h1{font-size:40px;line-height:1.2;margin:0 0 10px}
+    .hero p.lead{font-size:18px;color:var(--sub);margin:0 0 18px}
+    .hero img{width:100%;border-radius:16px;box-shadow:0 10px 40px rgba(2,132,199,.18)}
+    .bar{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .fomo{margin-top:14px;background:#fff7ed;border:1px dashed #fdba74;padding:10px 12px;border-radius:12px;color:#9a3412;font-weight:700}
+    section{padding:56px 0}
+    .card{background:var(--card);border:1px solid var(--muted);border-radius:16px;padding:24px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    h2{font-size:28px;margin:0 0 14px}
+    .muted{color:var(--sub)}
+    ul.clean{list-style:none;margin:0;padding:0}
+    .tick{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
+    .tick b{color:#0ea5e9}
+    .syllabus .unit{border-left:6px solid var(--brand2);background:#f8feff}
+    .sticky-cta{position:fixed;left:0;right:0;bottom:0;padding:10px;background:rgba(255,255,255,.9);backdrop-filter: blur(8px);border-top:1px solid var(--muted);z-index:40}
+    .sticky-cta .inner{display:flex;justify-content:center;gap:10px}
+    .cta-note{font-size:13px;color:#0f766e;background:#ecfeff;border:1px solid #a5f3fc;border-radius:10px;padding:8px 10px;margin-top:8px;display:inline-block}
+    .faq details{background:#fff;border:1px solid var(--muted);border-radius:12px;margin:10px 0;padding:14px}
+    .faq summary{cursor:pointer;font-weight:700}
+    .ref{font-size:12px;color:#64748b}
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr; padding:36px 0}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .hero h1{font-size:34px}
     }
   </style>
-</head>
-<body class="bg-gradient-to-b from-emerald-50 via-white to-cyan-50 text-gray-900 font-sans">
-  <!-- ===== 預售倒數（優化動畫效果） ===== -->
-  <div id="countdownBar" class="countdown-bar sticky top-0 z-50 w-full py-3 shadow-md text-center font-extrabold text-lg relative overflow-hidden">
-    <span class="relative z-10 text-black" id="countdownText">🔥 ⏳ 預售倒數：-- 天 -- 時 -- 分 -- 秒｜錯過將恢復原價</span>
-  </div>
 
-  <!-- ===== Top Bar（手機版優化） ===== -->
-  <header class="w-full bg-white/80 backdrop-blur border-b">
-    <div class="mx-auto max-w-6xl mobile-spacing mobile-nav py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <img src="https://static.wixstatic.com/media/9705bb_10fc5f34d58f4fa0aa95e913e15d0457~mv2.png" alt="AIJob學院 logo" class="mobile-logo md:h-9 md:w-9 object-contain rounded">
-        <a href="https://www.aijob.com.tw/" target="_blank" class="font-semibold text-sm md:text-base hover:text-emerald-600 transition-colors">AIJob學院</a>
+  <!-- ✅ Google Analytics (GA4) —— 替換為你的 GA4 ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');  // ← 換成你的 GA4 Measurement ID
+  </script>
+
+  <!-- ✅ Meta / Facebook Pixel —— 替換為你的 Pixel ID -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');   // ← 換成你的 Pixel ID
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+  /></noscript>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge badge-hot">限時免費｜填表寄送優惠券 ➜ 免費領取</span>
+        <h1>最簡單的 <span style="color:#0284c7;">GPT 對話與提示詞</span> 入門課</h1>
+        <p class="lead">看過一堆教學還是不會跟 AI 說話？這堂課用<strong>最最最簡單</strong>的方式，帶你學會像工程師一樣與 GPT 對話，附可複製模板＋手把手示範，<u>當天學、當天會</u>。</p>
+        <div class="bar">
+          <a class="btn btn-primary" href="https://AIJobschool.short.gy/Pkd8eK" target="_blank" rel="noopener">立即填表領取優惠券 → 免費上課</a>
+          <a class="btn btn-ghost" href="https://www.pressplay.cc/project/EFF7DD6F8741E0F5C2C5ED98504C45E6/about" target="_blank" rel="noopener">課程介紹（參考）</a>
+        </div>
+        <div class="fomo">⚠️ 優惠券數量與時效有限｜完成表單後，我們將「用 Email 寄出優惠券」→ 到平台輸入即可<strong>完整免費</strong>領取本課。</div>
+        <span class="cta-note">小提醒：信件可能進入促銷/垃圾信，收不到請到 LINE 詢問。</span>
       </div>
-      <div class="flex items-center gap-2 md:gap-4">
-        <a href="https://www.aijob.com.tw/" target="_blank" class="hidden md:inline-flex text-sm text-gray-600 hover:text-emerald-600 transition-colors">官方網站</a>
-        <a href="https://www.pressplay.cc/link/s/AC0CFD0A" target="_blank" class="cta-secondary text-xs md:text-sm px-3 py-2 md:px-4">立即預購</a>
+      <div>
+        <img src="https://static.wixstatic.com/media/9705bb_25859e666a624034bb099c6cfff2c4fc~mv2.jpg" alt="AIJob 免費課程封面" />
       </div>
     </div>
   </header>
 
-  <!-- ===== Hero（優化 CTA 和響應式） ===== -->
-  <section class="mx-auto max-w-6xl mobile-spacing pt-10 pb-6">
-    <div class="hero-card border shadow p-4 md:p-6 lg:p-8 fade-in">
-      <div class="text-center relative z-10">
-        <p class="text-lg md:text-2xl font-extrabold text-amber-900 tracking-wide">
-          AI 自動化行銷實戰營｜第 1 期限量預售中 🚀
-        </p>
-        <div class="mt-3 inline-flex items-center gap-2 px-4 py-2 rounded-full text-base md:text-lg font-bold bg-amber-300 text-amber-900 ring-2 ring-amber-400 pulse-glow">
-          預售進行中 · 名額有限
+  <!-- WHY / OUTCOMES -->
+  <section>
+    <div class="container">
+      <h2>學完你能做到什麼？</h2>
+      <p class="muted">這不是炫技課，我們只教你「馬上能上手的對話方法」。</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="tick">✅ <div><b>像工程師一樣說話</b><br><span class="muted">學會「角色 / 目標 / 格式」三要素，AI 立刻聽懂你要什麼。</span></div></div>
+          <div class="tick">✅ <div><b>套用就會用的模板</b><br><span class="muted">寫信、文案、資料彙整、學習筆記…一鍵複製即用。</span></div></div>
         </div>
-        <h1 class="hero-title mt-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent">
-          行銷 AI 自動化實戰（n8n × GPT）
-        </h1>
-        <p class="mt-3 text-sm md:text-base text-gray-800 text-enhanced">⌛ 現在加入鎖定早鳥價，隨時追加單元與模板—開賣將恢復原價。</p>
-        <p class="mt-2 text-sm md:text-base text-gray-700 text-enhanced">📢 預售僅開放 <span id="fomoHours">48</span> 小時內下單享早鳥價；截止後將恢復原價 NT$4,500。</p>
-      </div>
-
-      <div class="mt-6 rounded-3xl overflow-hidden border shadow-lg">
-        <img src="https://static.wixstatic.com/media/9705bb_650f30cbdd5040679358c3337425267d~mv2.jpg" alt="AI 自動化行銷實戰營課程封面 - n8n 與 GPT 應用教學" class="w-full h-auto">
-      </div>
-
-      <!-- 影片 -->
-      <div class="mt-6 rounded-2xl overflow-hidden border shadow p-2">
-        <div class="yt-container"><div class="yt-16x9">
-          <iframe id="yt" src="https://www.youtube.com/embed/ESk2t4Oa0ig?enablejsapi=1&start=1"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div></div>
-      </div>
-
-      <!-- YouTube Short 精華影片 -->
-      <div class="mt-6 relative">
-        <div class="text-center mb-4">
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-100 text-red-800 font-bold text-sm border border-red-200">
-            🔥 錯過就等一年！精華搶先看
-          </div>
+        <div class="card">
+          <div class="tick">✅ <div><b>真正能落地的流程</b><br><span class="muted">每單元都有練習與示範，保證從 0 到能用。</span></div></div>
+          <div class="tick">✅ <div><b>AI 生活/工作助理</b><br><span class="muted">把 AI 變成你的寫作、整理、研究小幫手，省時又穩定。</span></div></div>
         </div>
-        <div class="rounded-2xl overflow-hidden border shadow-lg relative">
-          <!-- FOMO 裝飾邊框 -->
-          <div class="absolute inset-0 bg-gradient-to-r from-red-500 via-orange-500 to-red-500 p-1 rounded-2xl">
-            <div class="bg-white rounded-xl h-full w-full"></div>
-          </div>
-          <div class="relative p-2">
-            <div class="aspect-[9/16] max-w-sm mx-auto">
-              <iframe 
-                src="https://www.youtube.com/embed/M5lan8M4_yw?si=rwGqzUZYBCQVMK98"
-                title="AI 自動化行銷實戰營 - 精華短片"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-                class="w-full h-full rounded-xl">
-              </iframe>
-            </div>
-          </div>
-        </div>
-        <div class="text-center mt-3">
-          <p class="text-sm text-red-600 font-semibold">⏰ 觀看精華影片，把握最後預購機會！</p>
-          <div class="mt-2 inline-flex items-center gap-2 text-xs text-gray-600">
-            <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-            早鳥名額剩餘 28%，即將售完
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-6 grid sm:grid-cols-3 gap-3">
-        <a href="#pricing" class="rounded-2xl px-5 py-3 border font-semibold bg-white text-gray-900 text-center hover:bg-gray-50 transition-colors">查看預售方案</a>
-        <a href="#why-now" class="rounded-2xl px-5 py-3 border font-semibold bg-white text-gray-900 text-center hover:bg-gray-50 transition-colors">為什麼現在要買？</a>
-        <!-- Hero 主 CTA：優化後的樣式 -->
-        <a href="https://www.pressplay.cc/link/s/AC0CFD0A" target="_blank" class="cta-primary">立即預購 →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 三大關鍵（增加懸停效果） ===== -->
-  <section class="mx-auto max-w-6xl mobile-spacing py-10 grid md:grid-cols-3 gap-6">
-    <div class="card-hover rounded-2xl border bg-white/90 backdrop-blur p-6 shadow fade-in">
-      <div class="text-sm text-emerald-700 font-semibold">幫助你解決什麼問題？</div>
-      <h3 class="mt-1 text-xl font-bold">再不改變，你的時間就被吃光</h3>
-      <p class="mt-3 text-gray-700 text-sm leading-6 text-enhanced">每天重複貼文、人工整理名單、疲於回覆訊息？這些不是努力，而是浪費！現在就用 AI 自動化，把浪費的工時變成產能與營收。</p>
-      <p class="mt-2 text-sm text-rose-600">⚠️ 趁預售鎖價，之後回到原價 NT$4,500。</p>
-    </div>
-    <div class="card-hover rounded-2xl border bg-white/90 backdrop-blur p-6 shadow fade-in">
-      <div class="text-sm text-emerald-700 font-semibold">上完後你會變成什麼樣樣子？</div>
-      <h3 class="mt-1 text-xl font-bold">擁有 24/7 的 AI 行銷戰隊</h3>
-      <p class="mt-3 text-gray-700 text-sm leading-6 text-enhanced">內容生成、Email、表單到數據整理，一切自動完成。你專注策略與增長，團隊用 SOP 模板快速複製成果。</p>
-      <p class="mt-2 text-sm text-rose-600">🎯 預售加入可先拿模板，開賣後將不再提供早鳥贈品。</p>
-    </div>
-    <div id="why-now" class="card-hover rounded-2xl border bg-white/90 backdrop-blur p-6 shadow fade-in">
-      <div class="text-sm text-emerald-700 font-semibold">為什麼你現在要買？</div>
-      <h3 class="mt-1 text-xl font-bold">預售價最划算＋優先權</h3>
-      <p class="mt-3 text-gray-700 text-sm leading-6 text-enhanced">現在加入可鎖定 <span class="font-semibold">預售價</span>、搶先取得模板與更新；正式開賣將恢復原價且名額有限。越早開始，越早享受自動化！</p>
-      <p class="mt-2 text-sm text-rose-600">⏰ 倒數進行中，贈品與席次有限。</p>
-    </div>
-  </section>
-
-  <!-- ===== 你會得到 + 圖片（優化響應式） ===== -->
-  <section class="mx-auto max-w-6xl mobile-spacing py-10">
-    <div class="grid md:grid-cols-2 gap-8 items-start">
-      <div class="card-hover rounded-2xl bg-white/80 backdrop-blur border p-6 shadow fade-in">
-        <div class="text-sm text-gray-500">你會得到</div>
-        <ul class="mt-2 space-y-2 text-gray-700 text-enhanced">
-          <li>✅ 6 份課程簡報＋8 個應用模板</li>
-          <li>✅ n8n × GPT 串接清單與排查清單</li>
-          <li>✅ 一條龍整合：ChatGPT／LINE／Notion／Google 生態</li>
-        </ul>
-        <p class="mt-2 text-sm text-rose-600">🎁 預售加贈：模板試用包 + 排錯錄播（限時）</p>
-        <a href="https://www.pressplay.cc/link/s/AC0CFD0A" target="_blank" class="cta-primary mt-4 w-full">立即預購</a>
-      </div>
-      <div class="rounded-2xl overflow-hidden border shadow flex items-center justify-center bg-white fade-in">
-        <img src="https://static.wixstatic.com/media/9705bb_b85f3e3731ee4e2680b800775d2142a9~mv2.png" alt="課程示意" class="w-full h-auto object-contain" />
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 成功案例（新增可信度提升） ===== -->
-  <section class="mx-auto max-w-6xl mobile-spacing py-16 bg-gradient-to-b from-blue-50 to-indigo-50">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">真實學員成功案例</h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">看看其他學員如何透過 AI 自動化行銷實戰營，實現效率翻倍、營收成長</p>
-    </div>
-    
-    <div class="grid md:grid-cols-3 gap-8">
-      <!-- 案例 1 -->
-      <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border fade-in">
-        <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
-            王
-          </div>
-          <div class="ml-3">
-            <h4 class="font-bold text-gray-900">王小明</h4>
-            <p class="text-sm text-gray-600">電商創業者</p>
-          </div>
-        </div>
-        <div class="mb-4">
-          <div class="flex items-center gap-4 mb-2">
-            <div class="text-center">
-              <div class="text-2xl font-bold text-red-500">-15小時</div>
-              <div class="text-xs text-gray-500">每週節省時間</div>
-            </div>
-            <div class="text-center">
-              <div class="text-2xl font-bold text-green-500">+35%</div>
-              <div class="text-xs text-gray-500">營收成長</div>
-            </div>
-          </div>
-        </div>
-        <blockquote class="text-gray-700 text-sm italic">
-          "以前每天花 3 小時處理客服訊息和訂單整理，現在全部自動化，我可以專心開發新產品。營收也因為更精準的行銷自動化提升了 35%！"
-        </blockquote>
-        <div class="mt-4 flex items-center text-yellow-400">
-          <span class="text-sm">⭐⭐⭐⭐⭐</span>
-          <span class="ml-2 text-xs text-gray-500">課程滿意度</span>
-        </div>
-      </div>
-
-      <!-- 案例 2 -->
-      <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border fade-in">
-        <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
-            李
-          </div>
-          <div class="ml-3">
-            <h4 class="font-bold text-gray-900">李美華</h4>
-            <p class="text-sm text-gray-600">行銷經理</p>
-          </div>
-        </div>
-        <div class="mb-4">
-          <div class="flex items-center gap-4 mb-2">
-            <div class="text-center">
-              <div class="text-2xl font-bold text-red-500">-20小時</div>
-              <div class="text-xs text-gray-500">每月節省時間</div>
-            </div>
-            <div class="text-center">
-              <div class="text-2xl font-bold text-green-500">+50%</div>
-              <div class="text-xs text-gray-500">轉換率提升</div>
-            </div>
-          </div>
-        </div>
-        <blockquote class="text-gray-700 text-sm italic">
-          "原本需要手動整理的客戶名單、發送 EDM、追蹤成效，現在一鍵完成。團隊效率大幅提升，轉換率也從 2% 提升到 3%！"
-        </blockquote>
-        <div class="mt-4 flex items-center text-yellow-400">
-          <span class="text-sm">⭐⭐⭐⭐⭐</span>
-          <span class="ml-2 text-xs text-gray-500">課程滿意度</span>
-        </div>
-      </div>
-
-      <!-- 案例 3 -->
-      <div class="card-hover bg-white rounded-2xl p-6 shadow-lg border fade-in">
-        <div class="flex items-center mb-4">
-          <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
-            陳
-          </div>
-          <div class="ml-3">
-            <h4 class="font-bold text-gray-900">陳志強</h4>
-            <p class="text-sm text-gray-600">自媒體經營者</p>
-          </div>
-        </div>
-        <div class="mb-4">
-          <div class="flex items-center gap-4 mb-2">
-            <div class="text-center">
-              <div class="text-2xl font-bold text-red-500">-10小時</div>
-              <div class="text-xs text-gray-500">每週節省時間</div>
-            </div>
-            <div class="text-center">
-              <div class="text-2xl font-bold text-green-500">+80%</div>
-              <div class="text-xs text-gray-500">粉絲互動率</div>
-            </div>
-          </div>
-        </div>
-        <blockquote class="text-gray-700 text-sm italic">
-          "內容發布、粉絲互動、數據分析全部自動化，讓我有更多時間專注創作。粉絲互動率提升 80%，收入也翻倍了！"
-        </blockquote>
-        <div class="mt-4 flex items-center text-yellow-400">
-          <span class="text-sm">⭐⭐⭐⭐⭐</span>
-          <span class="ml-2 text-xs text-gray-500">課程滿意度</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 統計數據 -->
-    <div class="mt-12 bg-white rounded-2xl p-8 shadow-lg border">
-      <h3 class="text-2xl font-bold text-center text-gray-900 mb-8">課程成效統計</h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="text-center">
-          <div class="text-3xl font-extrabold text-blue-600 mb-2">500+</div>
-          <div class="text-sm text-gray-600">成功學員</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-extrabold text-green-600 mb-2">15小時</div>
-          <div class="text-sm text-gray-600">平均每週節省</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-extrabold text-purple-600 mb-2">40%</div>
-          <div class="text-sm text-gray-600">平均效率提升</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-extrabold text-orange-600 mb-2">98%</div>
-          <div class="text-sm text-gray-600">學員滿意度</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center mt-8">
-      <a href="https://www.pressplay.cc/link/s/AC0CFD0A" target="_blank" class="cta-primary inline-flex items-center gap-2">
-        我也要成為成功案例 →
-      </a>
-    </div>
-  </section>
-
-  <!-- ===== 免費享有的服務（新增價值感提升區塊） ===== -->
-  <section class="mx-auto max-w-6xl mobile-spacing py-16 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 relative overflow-hidden">
-    <!-- 背景裝飾 -->
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-10 left-10 w-32 h-32 bg-emerald-400 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-10 right-10 w-40 h-40 bg-cyan-400 rounded-full blur-3xl"></div>
-    </div>
-    
-    <div class="relative">
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
-          🎁 限時加贈
-          <span class="bg-white/20 px-2 py-1 rounded-full text-xs">價值超過 NT$50,000</span>
-        </div>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-          購買課程 <span class="text-emerald-600">免費享有的服務</span>
-        </h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          這不只是一堂課程，更是一套完整的 AI 自動化解決方案！我們提供從學習到實戰的全方位支援，讓您的投資發揮最大價值
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8 mb-12">
-        <!-- 服務項目 1 -->
-        <div class="group card-hover bg-white/80 backdrop-blur rounded-2xl p-8 shadow-lg border border-emerald-100 relative overflow-hidden fade-in">
-          <div class="absolute top-0 right-0 bg-gradient-to-bl from-emerald-500 to-transparent w-20 h-20 opacity-10 group-hover:opacity-20 transition-opacity"></div>
-          <div class="relative">
-            <div class="flex items-center gap-4 mb-6">
-              <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center text-white text-2xl">
-                🚀
-              </div>
-              <div>
-                <h3 class="text-xl font-bold text-gray-900">免費教學與諮詢從 0-1 建置</h3>
-                <p class="text-emerald-600 font-semibold">價值 NT$15,000</p>
-              </div>
-            </div>
-            <p class="text-gray-700 leading-relaxed mb-4">
-              不只給你課程，更給你專業指導！我們的專家團隊將一對一協助您從零開始建置 AI 自動化系統，確保每個步驟都正確無誤，讓您快速上手並看到實際成效。
-            </p>
-            <div class="flex items-center gap-2 text-sm text-emerald-600 font-medium">
-              <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
-              一對一專家指導
-            </div>
-          </div>
-        </div>
-
-        <!-- 服務項目 2 -->
-        <div class="group card-hover bg-white/80 backdrop-blur rounded-2xl p-8 shadow-lg border border-emerald-100 relative overflow-hidden fade-in">
-          <div class="absolute top-0 right-0 bg-gradient-to-bl from-blue-500 to-transparent w-20 h-20 opacity-10 group-hover:opacity-20 transition-opacity"></div>
-          <div class="relative">
-            <div class="flex items-center gap-4 mb-6">
-              <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center text-white text-2xl">
-                🏢
-              </div>
-              <div>
-                <h3 class="text-xl font-bold text-gray-900">免費企業授課諮詢</h3>
-                <p class="text-blue-600 font-semibold">價值 NT$12,000</p>
-              </div>
-            </div>
-            <p class="text-gray-700 leading-relaxed mb-4">
-              想在公司推動 AI 自動化？我們提供專業的企業導入諮詢服務，協助您評估企業需求、制定導入策略，並提供客製化的培訓建議，讓整個團隊都能受益。
-            </p>
-            <div class="flex items-center gap-2 text-sm text-blue-600 font-medium">
-              <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
-              企業導入策略規劃
-            </div>
-          </div>
-        </div>
-
-        <!-- 服務項目 3 -->
-        <div class="group card-hover bg-white/80 backdrop-blur rounded-2xl p-8 shadow-lg border border-emerald-100 relative overflow-hidden fade-in">
-          <div class="absolute top-0 right-0 bg-gradient-to-bl from-purple-500 to-transparent w-20 h-20 opacity-10 group-hover:opacity-20 transition-opacity"></div>
-          <div class="relative">
-            <div class="flex items-center gap-4 mb-6">
-              <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-white text-2xl">
-                📋
-              </div>
-              <div>
-                <h3 class="text-xl font-bold text-gray-900">免費模板直接套用即可使用</h3>
-                <p class="text-purple-600 font-semibold">價值 NT$18,000</p>
-              </div>
-            </div>
-            <p class="text-gray-700 leading-relaxed mb-4">
-              超過 20 套精心設計的 AI 自動化模板，涵蓋行銷、客服、數據分析等各種應用場景。下載即用，無需從零開始，讓您在最短時間內建立專業的自動化系統。
-            </p>
-            <div class="flex items-center gap-2 text-sm text-purple-600 font-medium">
-              <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
-              20+ 專業模板庫
-            </div>
-          </div>
-        </div>
-
-        <!-- 服務項目 4 -->
-        <div class="group card-hover bg-white/80 backdrop-blur rounded-2xl p-8 shadow-lg border border-emerald-100 relative overflow-hidden fade-in">
-          <div class="absolute top-0 right-0 bg-gradient-to-bl from-orange-500 to-transparent w-20 h-20 opacity-10 group-hover:opacity-20 transition-opacity"></div>
-          <div class="relative">
-            <div class="flex items-center gap-4 mb-6">
-              <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center text-white text-2xl">
-                🎯
-              </div>
-              <div>
-                <h3 class="text-xl font-bold text-gray-900">企業免費講座分享 AI 自動化導入</h3>
-                <p class="text-orange-600 font-semibold">價值 NT$8,000</p>
-              </div>
-            </div>
-            <p class="text-gray-700 leading-relaxed mb-4">
-              獲得專屬的企業內訓講座機會！我們的專家將親自到您的公司，為您的團隊分享 AI 自動化的最新趨勢和實戰經驗，提升整個團隊的數位競爭力。
-            </p>
-            <div class="flex items-center gap-2 text-sm text-orange-600 font-medium">
-              <span class="w-2 h-2 bg-orange-500 rounded-full"></span>
-              專家親自到府分享
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 總價值強調 -->
-      <div class="text-center bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl p-8 relative overflow-hidden">
-        <div class="absolute inset-0 bg-white/10 backdrop-blur"></div>
-        <div class="relative">
-          <h3 class="text-2xl font-bold mb-4 text-black">免費服務總價值</h3>
-          <div class="flex items-center justify-center gap-4 mb-6 text-black">
-            <span class="text-4xl md:text-5xl font-extrabold">NT$53,000</span>
-            <div class="text-left">
-              <div class="text-sm opacity-90">原價</div>
-              <div class="text-lg line-through opacity-75">NT$56,500</div>
-            </div>
-          </div>
-          <p class="text-lg mb-6 opacity-90 text-black">
-            購買課程即可免費享有所有服務，讓您的 NT$3,500 投資發揮超過 15 倍的價值！
-          </p>
-          <div class="inline-flex items-center gap-2 bg-white/20 px-6 py-3 rounded-full text-black">
-            <span class="text-yellow-300">⚡</span>
-            <span class="font-semibold">限時預售專享，錯過不再有！</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- FOMO 元素 -->
-      <div class="text-center mt-8">
-        <div class="inline-flex items-center gap-3 bg-red-50 border border-red-200 rounded-full px-6 py-3 text-red-700">
-          <span class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></span>
-          <span class="font-semibold">這些免費服務僅限預售期間提供，正式開賣後將不再贈送！</span>
+        <div class="card">
+          <div class="tick">✅ <div><b>學習下一階段不迷路</b><br><span class="muted">銜接「工具實作與自動化」的學習地圖，清楚知道下一步。</span></div></div>
+          <div class="tick">✅ <div><b>優先收到進階課與優惠</b><br><span class="muted">完成表單即加入候補名單，之後開班優先通知你。</span></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 垂直圖片敘述（優化間距和效果） ===== -->
-  <section class="mx-auto max-w-3xl mobile-spacing py-10 space-y-8">
-    <div class="card-hover rounded-2xl overflow-hidden border shadow bg-white fade-in">
-      <img src="https://static.wixstatic.com/media/9705bb_e3f050fb83b0444dbcaf41a503ce5aaf~mv2.png" alt="零程式也能上手" class="w-full h-auto" />
-      <div class="p-4 md:p-6 text-gray-700">
-        <h3 class="font-bold text-lg mb-2">沒有程式背景？沒藉口！</h3>
-        <p class="text-enhanced">零基礎也能快速上手，課程一步步帶你完成自動化，別讓技術成為阻礙。</p>
-      </div>
-    </div>
-    <div class="card-hover rounded-2xl overflow-hidden border shadow bg-white fade-in">
-      <img src="https://static.wixstatic.com/media/9705bb_8a1a1a66e9f642219cafc084f9ac1d75~mv2.png" alt="整合工具" class="w-full h-auto" />
-      <div class="p-4 md:p-6 text-gray-700">
-        <h3 class="font-bold text-lg mb-2">別再被工具牽著走</h3>
-        <p class="text-enhanced">LINE、Notion、Google 資料分散？一次整合，讓工具聽你的，而不是拖慢你。</p>
-      </div>
-    </div>
-    <div class="card-hover rounded-2xl overflow-hidden border shadow bg-white fade-in">
-      <img src="https://static.wixstatic.com/media/9705bb_1059071ffbbd40008c4ace9173e82c8a~mv2.png" alt="SOP 模板" class="w-full h-auto" />
-      <div class="p-4 md:p-6 text-gray-700">
-        <h3 class="font-bold text-lg mb-2">SOP 模板＝成功捷徑</h3>
-        <p class="text-enhanced">直接下載使用，不必從零設計。越快套用，就越快看到成果。</p>
-      </div>
-    </div>
-    <div class="card-hover rounded-2xl overflow-hidden border shadow bg-white fade-in">
-      <img src="https://static.wixstatic.com/media/9705bb_29bb1edd690f48b89236d95633062e88~mv2.png" alt="學員見證" class="w-full h-auto" />
-      <div class="p-4 md:p-6 text-gray-700">
-        <h3 class="font-bold text-lg mb-2">學員見證最有力</h3>
-        <p class="text-enhanced">上百位學員已經透過這堂課翻轉效率。下一個成功案例，會是你嗎？</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 時程與交付 ===== -->
-  <section class="mx-auto max-w-6xl mobile-spacing py-10" id="timeline">
-    <div class="card-hover rounded-2xl border bg-white/90 p-6 shadow fade-in">
-      <h3 class="text-xl font-bold">預售時程與交付</h3>
-      <ul class="mt-4 grid md:grid-cols-3 gap-4 text-sm text-gray-700">
-        <li class="rounded-xl border p-4 text-enhanced"><span class="font-semibold">預售期間</span><br><span id="saleWindow">即日起 ～ （倒數 2 天）</span></li>
-        <li class="rounded-xl border p-4 text-enhanced"><span class="font-semibold">課程開放時間</span><br><span id="releaseDate">2025/10/01（可提早釋出單元）</span></li>
-        <li class="rounded-xl border p-4 text-enhanced"><span class="font-semibold">更新與服務</span><br>持續增補單元、模板更新免費，終身不限次數回看</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ===== 價格區（優化 CTA） ===== -->
-  <section class="mx-auto max-w-6xl mobile-spacing pb-20" id="pricing">
-    <h3 class="text-2xl font-extrabold text-center">預售方案</h3>
-    <p class="mt-2 text-center text-gray-600">預售價結束後將恢復原價</p>
-
-    <div class="mt-6 grid md:grid-cols-3 gap-6">
-      <!-- 早鳥方案 -->
-      <div class="relative card-hover rounded-2xl border shadow bg-white p-6 fade-in">
-        <div class="absolute -top-3 right-4 text-xs px-2 py-1 rounded-full bg-emerald-600 text-white">熱銷中 🔥</div>
-        <h4 class="font-bold">早鳥預售</h4>
-        <div class="mt-2 text-3xl font-extrabold">NT$3,500</div>
-        <div class="text-sm text-gray-500 line-through">NT$4,500</div>
-        <ul class="mt-3 space-y-2 text-sm text-gray-700 text-enhanced">
-          <li>• 完整課程（終身回看）</li>
-          <li>• 6 份簡報＋8 個模板</li>
-          <li>• 更新補課免費</li>
-        </ul>
-        <a href="https://www.pressplay.cc/link/s/AC0CFD0A" target="_blank" class="cta-primary mt-4 w-full">立即預購</a>
-      </div>
-
-      <!-- 標準方案（鎖定提醒） -->
-      <div class="relative card-hover rounded-2xl border shadow bg-white p-6 opacity-95 fade-in">
-        <div class="absolute -top-3 right-4 text-xs px-2 py-1 rounded-full bg-gray-800 text-white">開賣時恢復原價</div>
-        <h4 class="font-bold">正式版（即將開賣）</h4>
-        <div class="mt-2 text-3xl font-extrabold">NT$4,500</div>
-        <ul class="mt-3 space-y-2 text-sm text-gray-700 text-enhanced">
-          <li>• 完整課程（終身回看）</li>
-          <li>• 所有模板與更新</li>
-          <li>• 一次性付款</li>
-        </ul>
-        <a href="https://forms.fillout.com/t/qk8pZpQt5ius" target="_blank" class="mt-4 inline-flex rounded-xl px-5 py-3 border font-semibold w-full justify-center hover:bg-gray-50 transition-colors">我要鎖定</a>
-      </div>
-
-      <!-- 團隊授權（可選） -->
-      <div class="relative card-hover rounded-2xl border shadow bg-white p-6 fade-in">
-        <div class="absolute -top-3 right-4 text-xs px-2 py-1 rounded-full bg-cyan-600 text-white">團隊方案</div>
-        <h4 class="font-bold">團隊授權（3 人）</h4>
-        <div class="mt-2 text-3xl font-extrabold">NT$9,900</div>
-        <ul class="mt-3 space-y-2 text-sm text-gray-700 text-enhanced">
-          <li>• 3 席課程授權</li>
-          <li>• 企業內訓模板包</li>
-          <li>• 私聊一次諮詢（30 分）</li>
-        </ul>
-        <a href="https://forms.fillout.com/t/qk8pZpQt5ius" target="_blank" class="mt-4 inline-flex rounded-xl px-5 py-3 border font-semibold w-full justify-center hover:bg-gray-50 transition-colors">聯絡洽詢</a>
-      </div>
-    </div>
-
-    <!-- 進度條（優化動畫） -->
-    <div class="mt-6 fade-in">
-      <div class="text-sm text-gray-600 mb-2">早鳥名額已售出 72%</div>
-      <div id="progressBar" class="w-full h-4 rounded-full overflow-hidden shadow-inner progress-bg">
-        <div id="progressFill" class="h-full progress-fill" style="width:72%"></div>
-      </div>
-      <p class="text-xs text-rose-600 mt-2">⚡ 越接近 100%，預售越可能提前結束。</p>
-    </div>
-  </section>
-
-  <!-- ===== FAQ ===== -->
-  <section class="mx-auto max-w-6xl mobile-spacing pb-32">
-    <div class="card-hover rounded-2xl border p-6 bg-white/90 backdrop-blur shadow fade-in">
-      <h3 class="text-xl font-bold text-center">常見問題</h3>
-      <div class="mt-4 grid md:grid-cols-2 gap-4 text-gray-700 text-sm">
-        <div class="rounded-xl border p-4 hover:bg-gray-50 transition-colors">
-          <div class="font-semibold">這是預售，何時可以開始學？</div>
-          <p class="mt-2 text-enhanced">預計 <span class="font-semibold">2025/10/01</span> 開放主要單元，之後持續增補更新（如可提前會提前釋出）。</p>
+  <!-- WHAT YOU'LL LEARN (based on 圖1 大綱) -->
+  <section>
+    <div class="container">
+      <h2>這堂課你會學到</h2>
+      <div class="grid-2">
+        <div class="card unit syllabus">
+          <h3>📚 入門概念：認識 AI 與 ChatGPT</h3>
+          <ul class="clean">
+            <li class="tick">🧭 <div><b>AI 是什麼？與生活的關係</b><br><span class="muted">拆解常見迷思，建立正確觀念。</span></div></li>
+            <li class="tick">🧩 <div><b>常用 AI 工具初體驗</b><br><span class="muted">ChatGPT、會「畫/說/找」的 AI，哪些免費、怎麼搭。</span></div></li>
+          </ul>
         </div>
-        <div class="rounded-xl border p-4 hover:bg-gray-50 transition-colors">
-          <div class="font-semibold">需要程式背景嗎？</div>
-          <p class="mt-2 text-enhanced">不用。完全針對零程式設計，跟著模板一步一步完成。</p>
+        <div class="card unit syllabus">
+          <h3>🎯 與 AI 對話的藝術：提示詞入門</h3>
+          <ul class="clean">
+            <li class="tick">🧠 <div><b>為什麼 AI 有時不懂你？</b><br><span class="muted">理解「指令可解度」與上下文關係。</span></div></li>
+            <li class="tick">🧱 <div><b>提示詞框架：角色 / 目標 / 格式</b><br><span class="muted">一套就夠用，溝通清楚 90% 問題迎刃而解。</span></div></li>
+            <li class="tick">📎 <div><b>可複製的範例模板</b><br><span class="muted">文案、信件、資料整理、學習筆記等立即可用。</span></div></li>
+          </ul>
         </div>
-        <div class="rounded-xl border p-4 hover:bg-gray-50 transition-colors">
-          <div class="font-semibold">可以重複看嗎？有期限嗎？</div>
-          <p class="mt-2 text-enhanced">終身不限次數觀看，之後更新免費。</p>
+        <div class="card unit syllabus">
+          <h3>🛠️ 手把手實作：把 AI 變成好幫手</h3>
+          <ul class="clean">
+            <li class="tick">✍️ <div><b>生成寫作與改寫</b>（文章/社群/訊息）</div></li>
+            <li class="tick">📑 <div><b>資料彙整與摘要</b>（研究/會議/個人知識庫）</div></li>
+            <li class="tick">🗂️ <div><b>個人效率流程</b>（待辦、筆記、整理）</div></li>
+            <li class="tick">🧩 <div><b>綜合實戰</b>：用 AI 解決生活中的小問題</div></li>
+          </ul>
         </div>
-        <div class="rounded-xl border p-4 hover:bg-gray-50 transition-colors">
-          <div class="font-semibold">預售有保障嗎？</div>
-          <p class="mt-2 text-enhanced">若課程未如期開放，我們會主動通知並提供解決方案與補償；你也可透過報名頁客服窗口聯繫。</p>
+        <div class="card unit syllabus">
+          <h3>➡️ 持續學習與下一步</h3>
+          <ul class="clean">
+            <li class="tick">🗺️ <div><b>AI 學習地圖</b>：基礎 → 工具實作 → 行銷/自動化應用</div></li>
+            <li class="tick">💡 <div><b>如何跟上 AI 變化</b>：不踩雷的學習策略</div></li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== AIJob學院介紹 ===== -->
-  <section class="mx-auto max-w-6xl mobile-spacing py-16 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
-    <!-- 背景裝飾 -->
-    <div class="absolute inset-0 opacity-5">
-      <div class="absolute top-20 left-20 w-40 h-40 bg-blue-500 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-20 right-20 w-32 h-32 bg-indigo-500 rounded-full blur-3xl"></div>
-    </div>
-    
-    <div class="relative">
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
-          🏆 專業認證
-          <span class="bg-white/20 px-2 py-1 rounded-full text-xs">台灣領先 AI 教育機構</span>
+  <!-- CTA AREA -->
+  <section>
+    <div class="container">
+      <div class="card" style="text-align:center">
+        <h2>現在填表，<span style="color:#0284c7">優惠券立即寄到你信箱</span> 📬</h2>
+        <p class="muted">收到信後，依指示在平台輸入優惠券即可<strong>完全免費</strong>解鎖本課。</p>
+        <p class="muted" style="margin-top:4px">（若沒看到，請檢查「促銷｜垃圾信」或在 LINE 私訊我們）</p>
+        <div style="margin-top:14px">
+          <a class="btn btn-primary" href="https://AIJobschool.short.gy/Pkd8eK" target="_blank" rel="noopener">立即填表領取免費課程</a>
         </div>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-          關於 <span class="text-blue-600">AIJob學院</span>
-        </h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          台灣首屈一指的 AI 職能培訓機構，致力於培養企業和個人的 AI 應用能力，讓每個人都能在 AI 時代中脫穎而出
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-        <!-- 學院介紹內容 -->
-        <div class="space-y-6">
-          <div class="card-hover bg-white/80 backdrop-blur rounded-2xl p-6 shadow-lg border border-blue-100 fade-in">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center text-white text-xl">
-                🎯
-              </div>
-              <h3 class="text-xl font-bold text-gray-900">我們的使命</h3>
-            </div>
-            <p class="text-gray-700 leading-relaxed">
-              讓 AI 技術不再是少數人的專利，而是每個職場工作者都能掌握的實用技能。我們相信，透過系統化的教學和實戰演練，任何人都能成為 AI 應用專家。
-            </p>
-          </div>
-
-          <div class="card-hover bg-white/80 backdrop-blur rounded-2xl p-6 shadow-lg border border-blue-100 fade-in">
-            <div class="flex items-center gap-4 mb-4">
-              <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center text-white text-xl">
-                💡
-              </div>
-              <h3 class="text-xl font-bold text-gray-900">專業優勢</h3>
-            </div>
-            <p class="text-gray-700 leading-relaxed">
-              結合產業實務經驗與學術理論，我們的課程設計注重實戰應用，確保學員能夠立即將所學應用到工作中，創造實際價值和競爭優勢。
-            </p>
-          </div>
-        </div>
-
-        <!-- 學院數據統計 -->
-        <div class="space-y-6">
-          <div class="grid grid-cols-2 gap-4">
-            <div class="text-center bg-white/80 backdrop-blur rounded-2xl p-6 shadow-lg border border-blue-100 fade-in">
-              <div class="text-3xl font-extrabold text-blue-600 mb-2">5000+</div>
-              <div class="text-sm text-gray-600">累積培訓學員</div>
-            </div>
-            <div class="text-center bg-white/80 backdrop-blur rounded-2xl p-6 shadow-lg border border-blue-100 fade-in">
-              <div class="text-3xl font-extrabold text-emerald-600 mb-2">200+</div>
-              <div class="text-sm text-gray-600">合作企業客戶</div>
-            </div>
-            <div class="text-center bg-white/80 backdrop-blur rounded-2xl p-6 shadow-lg border border-blue-100 fade-in">
-              <div class="text-3xl font-extrabold text-purple-600 mb-2">95%</div>
-              <div class="text-sm text-gray-600">學員滿意度</div>
-            </div>
-            <div class="text-center bg-white/80 backdrop-blur rounded-2xl p-6 shadow-lg border border-blue-100 fade-in">
-              <div class="text-3xl font-extrabold text-orange-600 mb-2">50+</div>
-              <div class="text-sm text-gray-600">專業課程模組</div>
-            </div>
-          </div>
-
-          <div class="card-hover bg-white/80 backdrop-blur rounded-2xl p-6 shadow-lg border border-blue-100 fade-in">
-            <h4 class="text-lg font-bold text-gray-900 mb-4">核心服務領域</h4>
-            <div class="space-y-3">
-              <div class="flex items-center gap-3">
-                <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
-                <span class="text-gray-700">AI 自動化工具應用培訓</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
-                <span class="text-gray-700">企業數位轉型諮詢</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
-                <span class="text-gray-700">客製化 AI 解決方案</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <span class="w-2 h-2 bg-orange-500 rounded-full"></span>
-                <span class="text-gray-700">職場 AI 技能認證</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 政府補助資訊 -->
-      <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white relative overflow-hidden mb-8">
-        <div class="absolute inset-0 bg-white/10 backdrop-blur"></div>
-        <div class="relative">
-          <div class="text-center mb-6">
-            <h3 class="text-2xl font-bold mb-2">🏛️ 政府補助合作夥伴</h3>
-            <p class="text-lg opacity-90">協助企業申請政府培訓補助，降低學習成本</p>
-          </div>
-          
-          <div class="grid md:grid-cols-3 gap-6 text-center">
-            <div class="bg-white/20 rounded-xl p-4">
-              <div class="text-lg font-bold mb-2">小型企業人力提升計畫</div>
-              <div class="text-sm opacity-90">50人以下企業可申請</div>
-              <div class="text-yellow-300 font-semibold mt-2">政府全額負擔</div>
-            </div>
-            <div class="bg-white/20 rounded-xl p-4">
-              <div class="text-lg font-bold mb-2">數位轉型補助</div>
-              <div class="text-sm opacity-90">30人以下中小企業</div>
-              <div class="text-yellow-300 font-semibold mt-2">最高補助 10 萬元</div>
-            </div>
-            <div class="bg-white/20 rounded-xl p-4">
-              <div class="text-lg font-bold mb-2">產業人才投資方案</div>
-              <div class="text-sm opacity-90">在職勞工個人申請</div>
-              <div class="text-yellow-300 font-semibold mt-2">補助 80-100%</div>
-            </div>
-          </div>
-          
-          <div class="text-center mt-6">
-            <p class="text-sm opacity-90 mb-4">我們協助您評估最適合的補助方案，讓學習投資更有效益</p>
-            <a href="https://www.aijob.com.tw/" target="_blank" class="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors">
-              了解更多補助資訊 →
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 官網連結 CTA -->
-      <div class="text-center">
-        <div class="inline-flex items-center gap-4 bg-white/80 backdrop-blur rounded-2xl p-6 shadow-lg border border-blue-100">
-          <div>
-            <h4 class="text-lg font-bold text-gray-900 mb-2">探索更多 AI 學習資源</h4>
-            <p class="text-gray-600 text-sm">訪問 AIJob學院官網，發現更多專業課程和學習機會</p>
-          </div>
-          <a href="https://www.aijob.com.tw/" target="_blank" class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all transform hover:scale-105 whitespace-nowrap">
-            前往官網
-          </a>
+        <!-- 新增：LINE 官方帳號 CTA（只加這一顆，不改其他內容） -->
+        <div style="margin-top:10px">
+          <a class="btn btn-line" href="https://AIJobschool.short.gy/nm61Fe" target="_blank" rel="noopener">加入 LINE 官方帳號</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Sticky CTA（優化樣式） ===== -->
-  <div class="fixed bottom-0 inset-x-0 shadow-lg z-40" style="background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #1f2937 100%); backdrop-filter: blur(10px);">
-    <div class="mx-auto max-w-6xl mobile-spacing py-3 flex items-center justify-between gap-3">
-      <div class="text-xs md:text-sm text-white font-medium" style="text-shadow: 0 1px 2px rgba(0,0,0,0.5);"><span class="font-bold text-yellow-300">預售價 NT$3,500</span><span class="text-gray-300">（原價 NT$4,500）</span> · <span class="text-yellow-200">早鳥倒數進行中</span></div>
-      <a href="https://www.pressplay.cc/link/s/AC0CFD0A" target="_blank" class="cta-primary text-sm md:text-base px-3 md:px-4 py-2 min-w-max">立即預購</a>
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <h2>常見問題</h2>
+      <details>
+        <summary>這堂課適合完全新手嗎？</summary>
+        <p class="muted">就是專為新手而設計！我們避免艱深術語，所有步驟都有畫面示範與可複製模板。</p>
+      </details>
+      <details>
+        <summary>課程如何免費領取？</summary>
+        <p class="muted">點擊本頁 CTA 填寫表單 → 我們會把優惠券寄到你的 Email → 依指示到平台輸入，即可免費領取完整課程。</p>
+      </details>
+      <details>
+        <summary>我想繼續學自動化與行銷應用，下一步？</summary>
+        <p class="muted">完成本課後，你會收到「AI 學習地圖」與開課通知（如 n8n 自動化、社群與內容自動化、Notion CRM 等）。名額有限，會優先通知名單中的同學。</p>
+      </details>
+      <p class="ref">參考專案頁（內容僅供參考）：<a href="https://www.pressplay.cc/project/EFF7DD6F8741E0F5C2C5ED98504C45E6/about" target="_blank" rel="noopener">PressPlay 專案頁</a></p>
+    </div>
+  </section>
+
+  <!-- STICKY CTA -->
+  <div class="sticky-cta">
+    <div class="inner">
+      <a class="btn btn-primary" href="https://AIJobschool.short.gy/Pkd8eK" target="_blank" rel="noopener">填表拿優惠券 → 免費上課</a>
+      <a class="btn btn-ghost" href="https://AIJobschool.short.gy/Pkd8eK" target="_blank" rel="noopener">我想先看看表單內容</a>
     </div>
   </div>
 
-  <!-- ===== Scripts ===== -->
-  <script>
-    // 首訪鎖定 48 小時倒數（localStorage）
-    const KEY = 'aijob_presale_deadline_v1';
-    const TWO_DAYS_MS = 2 * 24 * 60 * 60 * 1000;
-    let deadline = Number(localStorage.getItem(KEY));
-    const nowInit = Date.now();
-    if (!deadline || !Number.isFinite(deadline) || deadline < nowInit) {
-      deadline = nowInit + TWO_DAYS_MS;
-      localStorage.setItem(KEY, String(deadline));
-    }
-    // 寫入時程文字
-    const saleWindowEl = document.getElementById('saleWindow');
-    if (saleWindowEl) {
-      const endDate = new Date(deadline);
-      saleWindowEl.textContent = `即日起 ～ ${endDate.toLocaleDateString('zh-TW')} 23:59`;
-    }
-    const releaseDateEl = document.getElementById('releaseDate');
-    if (releaseDateEl) releaseDateEl.textContent = `2025/10/01（可提早釋出單元）`;
-
-    // 動態倒數（每秒遞減）
-    const countdownText = document.getElementById('countdownText');
-    const fomoHoursEl = document.getElementById('fomoHours');
-    function tick(){
-      const now = Date.now();
-      let diff = Math.max(0, deadline - now);
-      const d = Math.floor(diff / 86400000); diff -= d * 86400000;
-      const h = Math.floor(diff / 3600000);   diff -= h * 3600000;
-      const m = Math.floor(diff / 60000);      diff -= m * 60000;
-      const s = Math.floor(diff / 1000);
-      const totalHours = Math.max(0, Math.floor((deadline - now) / 3600000));
-      if (fomoHoursEl) fomoHoursEl.textContent = String(totalHours);
-      countdownText.textContent = (deadline - now <= 0)
-        ? '⏰ 預售已結束（可洽詢是否加開名額）'
-        : `🔥 ⏳ 預售倒數： ${d}天 ${h}時 ${m}分 ${s}秒｜錯過將恢復原價`;
-    }
-    tick();
-    setInterval(tick, 1000);
-
-    // 漸入動畫觸發
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationDelay = Math.random() * 0.3 + 's';
-          entry.target.classList.add('fade-in');
-        }
-      });
-    }, observerOptions);
-
-    // 觀察所有需要動畫的元素
-    document.addEventListener('DOMContentLoaded', () => {
-      const animatedElements = document.querySelectorAll('.fade-in');
-      animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        observer.observe(el);
-      });
-    });
-  </script>
-
-  <!-- YouTube 追蹤（保留，可接 GA4） -->
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <script>
-    let ytPlayer, sent25=false;
-    function onYouTubeIframeAPIReady(){
-      ytPlayer = new YT.Player('yt', { events: { 'onStateChange': onPlayerStateChange } });
-    }
-    function onPlayerStateChange(e){
-      if (e.data === YT.PlayerState.PLAYING) {
-        const iv = setInterval(()=>{
-          if (!ytPlayer || !ytPlayer.getDuration) return;
-          const dur = ytPlayer.getDuration();
-          const cur = ytPlayer.getCurrentTime();
-          if (dur > 0 && !sent25 && cur/dur >= 0.25) { 
-            sent25 = true; 
-            clearInterval(iv);
-            // 可在此處加入 GA4 事件追蹤
-          }
-        }, 1000);
-      }
-    }
-  </script>
 </body>
 </html>
